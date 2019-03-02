@@ -1,6 +1,6 @@
 Projects were created using C++ 11 (Recent Modifications with C++ 14), Java, C, and Bash with Vim/Vi
 
-\# UMSL_Projects
+\# UMSL_Projects\
 Projects completed at University of Missouri - St. Louis from Fall 2016 - Fall 2017\
 Projects were to completed as part of satisfying the conditions of UMSL's Minor in Computer Science
 
