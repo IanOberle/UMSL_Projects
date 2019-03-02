@@ -1,0 +1,57 @@
+#Ian Oberle
+#CS 2750 PA 2
+#9/26/2017
+
+#!/bin/bash
+
+#Enter selected directory
+read -p "Please the name of a directory you would like to view: " dir_name
+echo "dir_name is: $dir_name"
+#Handles condition of existing or non-existing input for directory name
+cd $(find . -name "$dir_name")
+if (( "$dir_name" -eq "" ))
+then
+  echo "stuff"
+  cd $(find . -name oberle_pa2)
+  echo "Default directory is being used."
+fi
+
+echo "Files are sorted by directory and by size, from least to greatest. "
+#Displays and sorts files by directory and by size (least to greatest size)
+ls -rRlS |egrep -v '\.:|\.|\.\.|\.$\/|total|^d' |sed '/^$/d'|awk '{ print $5, $NF}'
+
+#Tells user how many files are with the selected directory and its subdirectories
+echo "Number of files within the selected directory: "
+ls -rRlS |egrep -v '\.:|\.|\.\.|\.$\/|total|^d' |sed '/^$/d'|awk '{ print $5, $NF}'|wc -l
+echo
+echo "The files that have a size of 0 are: "
+
+#Lists files with size of 0 and displays how many of these files exist
+find . -size 0 -print
+echo "Number of files with size 0: "
+find . -size 0 -print|wc -l
+count=$(find . -size 0 -print|wc -l)
+
+#Tells user parameters to delete or keep size 0 files
+echo
+echo "Do you want to delete these files? If yes enter type 0."
+echo "If no, enter any other number(integer) value."
+read delete_option
+if ((delete_option == 0))
+then 
+#Deletes files with size 0, asks user for confirmation first
+  find  -size 0 -exec rm {} \;
+  count2=$(find . -size 0 -print|wc -l)
+  if (( $count >  $count2 && $count2 > 0 ))
+  then
+    echo "Some empty files have been deleted."
+  elif (( $count == $count2 ))
+  then
+    echo "All empty files have been kept."
+  else
+    echo "All empty files have been deleted."
+  fi
+else
+  echo "All empty files have been kept."
+fi
+

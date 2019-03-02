@@ -1,0 +1,112 @@
+#Ian Oberle
+#cs 2750 PA 2
+#9/23/2017
+
+#!/bin/bash
+
+#Function for each of the four operations.
+#Each function has a check for both num1 and num2 to determine if a value was entered.
+#If there is a missing input an error message is read.
+#There division operator has a special to display an error message
+#if the user attempts to divide by zero.
+function add()
+{
+  clear
+	read -p "Enter two numbers :" num1 num2
+	if (( (num1) && (num2)))
+	then
+		let num3=$num1+$num2
+		echo "$num1 + $num2 = $num3"
+	else
+		echo "One or more numbers is missing from the operation."
+	fi
+}
+function inverse_add()
+{ 
+  clear
+	read -p "Enter two numbers: " num1 num2
+	if (( (num1) && (num2)))
+	then
+		let num3=$num1-$num2
+		echo "$num1 - $num2 = $num3"
+	else
+		echo "One or more numbers is missing from the operation."
+	fi
+}
+function mult()
+{
+  clear
+	read -p "Enter two numbers: " mult1 mult2
+	if (( (mult1) && (mult2)))
+	then
+		let mult3=$mult1*$mult2
+		echo "$mult1 * $mult2 = $mult3"
+	else
+		echo "One or more numbers is missing from the operation."
+	fi
+}
+function inverse_mult()
+{
+  clear
+	read -p "Enter two numbers: " num1 num2
+	if (( (num1) && (num2)))
+	then
+		if (($num2 == 0))
+		then
+			echo "You cannot divide by zero"
+		else 
+			let num3=$num1/$num2
+			echo "$num1 / $num2 = $num3"
+		fi
+	else
+		echo "One or more numbers is missing from the operation."
+	fi
+}
+
+#Setting condition to perform while loop
+terminate=0
+
+#While loop to display calculator menu and perform selected operation
+while test $terminate -eq 0
+do
+cat << CALCGUI
+
+Basic Function Calculator
+Opertation Selection
+
+a. 	Add Two Numbers
+s.	Subtract Two Numbers
+m.	Multiply Two Numbers
+d.	Divide Two Numbers
+t.	Terminate Program
+e.	Exit Program
+CALCGUI
+
+	echo
+	read -p "Choose you operation " op
+	case $op in
+	"a")
+		add
+	;;
+	"s")
+		inverse_add
+	;;
+	"m")
+		mult
+	;;
+	"d")
+		inverse_mult
+	;;
+	"t")
+		echo "You have terminated the program"
+		terminate=1
+	;;
+	"e")
+		echo "You have exited the program"
+		terminate=1
+	;;
+	*)
+echo "An operation was not specified."
+echo "Restarting calculator function."
+esac
+done

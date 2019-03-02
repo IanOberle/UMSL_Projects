@@ -1,0 +1,20 @@
+#Ian Oberle
+#CS 2750 PA 1
+#09/13/2017
+
+
+
+BEGIN {print "<< Start of file >>"}
+{
+	if ((NR > 2) && (NR < 6))
+	{
+		printf "line %d: ", NR;
+		for (i = NF ; i >= 1; i--){
+			printf "%s ", $i;
+		}
+		printf "\n";
+		lineCount++;
+		wordCount += NF;
+	}
+}
+END {printf "<< End of file: wordCount = %d >>\n", wordCount, lineCount}

@@ -1,0 +1,49 @@
+#Ian Oberle
+#cs 2750 PA 2
+#9/23/2017
+
+#!/bin/bash
+
+echo "Enter an integer greater than zero."
+read num1
+
+#Check is there is input for the variable num1
+if ((num1))
+
+then
+
+#For loop to display numbers 1 through num1, Fizz, Buzz, FizzBuzz
+	for (( i = 1 ; i <= $num1; i++))
+	{		
+		if (( (i % 3) == 0 && (i % 5)  == 0))
+		then
+			echo 'FizzBuzz'
+		elif (( i % 3 == 0 ))
+		then 
+			echo 'Fizz'
+		elif (( i % 5 == 0 ))
+		then
+			echo 'Buzz'
+		else
+			echo $i
+		fi
+	}
+else
+	echo "Default Display, 1-20"
+  #For loop to display numbers 1 through 20, default condition
+  for (( i = 1 ; i <= 20; i++))
+  {
+	  if (( (i % 3) == 0 && (i % 5)  == 0))
+	  then
+		  echo 'FizzBuzz'
+	  elif (( i % 3 == 0 ))
+	  then 
+		  echo 'Fizz'
+	  elif (( i % 5 == 0 ))
+	  then
+		  echo 'Buzz'
+	  else
+		  echo $i
+	  fi
+}
+fi
