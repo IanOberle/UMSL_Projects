@@ -1,4 +1,0 @@
-﻿  OberleIanP2.cpp
-c:\users\ian\documents\personal files\visual studio 2015\projects\oberleianp2\oberleianp2\oberleianp2.cpp(223): warning C4244: 'initializing': conversion from 'time_t' to 'unsigned int', possible loss of data
-  OberleIanP2.vcxproj -> C:\Users\Ian\Documents\Personal Files\Visual Studio 2015\Projects\OberleIanP2\Debug\OberleIanP2.exe
-  OberleIanP2.vcxproj -> C:\Users\Ian\Documents\Personal Files\Visual Studio 2015\Projects\OberleIanP2\Debug\OberleIanP2.pdb (Partial PDB)

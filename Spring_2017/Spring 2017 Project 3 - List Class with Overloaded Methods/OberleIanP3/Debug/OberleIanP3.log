@@ -1,4 +1,0 @@
-﻿  OberleIanP3.cpp
-c:\users\ian oberle\documents\visual studio 2015\projects\oberleianp3\oberleianp3\oberleianp3.cpp(125): warning C4244: 'initializing': conversion from 'time_t' to 'unsigned int', possible loss of data
-  OberleIanP3.vcxproj -> C:\Users\Ian Oberle\Documents\Visual Studio 2015\Projects\OberleIanP3\Debug\OberleIanP3.exe
-  OberleIanP3.vcxproj -> C:\Users\Ian Oberle\Documents\Visual Studio 2015\Projects\OberleIanP3\Debug\OberleIanP3.pdb (Partial PDB)
